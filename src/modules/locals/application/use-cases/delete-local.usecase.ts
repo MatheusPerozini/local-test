@@ -1,8 +1,8 @@
 import { DeleteResult } from 'typeorm';
-import { ILocalRepository } from '../../domain/interfaces/locals.repository.interface';
+import { LocalRepository } from '../../infrastructure/repositories/local.repository';
 
 export class DeleteLocalUseCase {
-  constructor(private readonly repo: ILocalRepository) {}
+  constructor(private readonly repo: LocalRepository) {}
 
   async execute(id: number): Promise<DeleteResult> {
     return this.repo.delete(id);
