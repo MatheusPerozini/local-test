@@ -1,9 +1,14 @@
 import { CreateLocalDto } from '../dtos/create-local-dto';
 import { LocalsEntity } from '../../domain/entities/locals.entity';
 import { LocalRepository } from '../../infrastructure/repositories/local.repository';
+import { Inject, Injectable } from '@nestjs/common';
 
+@Injectable()
 export class CreateLocalUseCase {
-  constructor(private readonly repo: LocalRepository) {}
+  constructor(
+    @Inject(LocalRepository)
+    private readonly repo: LocalRepository,
+  ) {}
 
   async execute(dto: CreateLocalDto): Promise<LocalsEntity> {
     return this.repo.create({
