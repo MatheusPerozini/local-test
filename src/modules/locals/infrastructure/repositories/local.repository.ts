@@ -4,7 +4,9 @@ import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { ILocalRepository } from '../../domain/interfaces/locals.repository.interface';
 import { UpdateLocalDto } from '../../application/dtos/update-local.dto';
 import { CreateLocalDto } from '../../application/dtos/create-local-dto';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class LocalRepository implements ILocalRepository {
   constructor(
     @InjectRepository(LocalsEntity)
