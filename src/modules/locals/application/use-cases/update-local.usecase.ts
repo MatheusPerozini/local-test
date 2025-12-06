@@ -2,7 +2,7 @@ import { UpdateResult } from 'typeorm';
 import { UpdateLocalDto } from '../dtos/update-local.dto';
 import { LocalRepository } from '../../infrastructure/repositories/local.repository';
 import { Inject, Injectable } from '@nestjs/common';
-import { ILocalRepository } from '../../domain/interfaces/locals.repository.interface';
+import { ILocalRepository } from '../../domain/abstract/locals.repository.abstract';
 
 @Injectable()
 export class UpdateLocalUseCase {

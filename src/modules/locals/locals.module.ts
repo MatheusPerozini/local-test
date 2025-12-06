@@ -1,3 +1,4 @@
+import { ILocalRepository } from './domain/abstract/locals.repository.abstract';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LocalsEntity } from './domain/entities/locals.entity';
@@ -13,7 +14,7 @@ import { DeleteLocalUseCase } from './application/use-cases/delete-local.usecase
   imports: [TypeOrmModule.forFeature([LocalsEntity])],
   controllers: [LocalsController],
   providers: [
-    { provide: 'ILocalRepositoy', useClass: LocalRepository },
+    { provide: ILocalRepository, useClass: LocalRepository },
     CreateLocalUseCase,
     GetLocalUseCase,
     ListLocalsUseCase,

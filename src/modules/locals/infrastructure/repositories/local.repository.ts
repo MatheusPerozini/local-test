@@ -1,7 +1,7 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { LocalsEntity } from '../../domain/entities/locals.entity';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
-import { ILocalRepository } from '../../domain/interfaces/locals.repository.interface';
+import { ILocalRepository } from '../../domain/abstract/locals.repository.abstract';
 import { UpdateLocalDto } from '../../application/dtos/update-local.dto';
 import { CreateLocalDto } from '../../application/dtos/create-local-dto';
 import { Injectable } from '@nestjs/common';
