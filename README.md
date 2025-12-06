@@ -26,6 +26,20 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Infrastructure
+
+Following the DDD model.
+Splitting the functionalities of a model with 3 layers: Application, Domain and Infrastructure.
+
+### Domain
+For Entity and interfaces
+
+### Application
+For DTOS and uses-cases
+
+### Infrastructure
+Connection with the repository
+
 ## Installation
 
 ```bash
