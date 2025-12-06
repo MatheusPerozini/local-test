@@ -32,7 +32,7 @@ Following the DDD model.
 Splitting the functionalities of a model with 3 layers: Application, Domain and Infrastructure.
 
 ### Domain
-For Entity and interfaces
+For Entity and abstrac classes
 
 ### Application
 For DTOS and uses-cases
