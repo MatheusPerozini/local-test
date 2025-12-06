@@ -13,7 +13,7 @@ import { DeleteLocalUseCase } from './application/use-cases/delete-local.usecase
   imports: [TypeOrmModule.forFeature([LocalsEntity])],
   controllers: [LocalsController],
   providers: [
-    { provide: 'LocalRepositoy', useClass: LocalRepository },
+    { provide: 'ILocalRepositoy', useClass: LocalRepository },
     CreateLocalUseCase,
     GetLocalUseCase,
     ListLocalsUseCase,
