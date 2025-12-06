@@ -3,6 +3,7 @@ import { LocalsEntity } from '../../domain/entities/locals.entity';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { ILocalRepository } from '../../domain/interfaces/locals.repository.interface';
 import { UpdateLocalDto } from '../../application/dtos/update-local.dto';
+import { CreateLocalDto } from '../../application/dtos/create-local-dto';
 
 export class LocalRepository implements ILocalRepository {
   constructor(
@@ -10,7 +11,7 @@ export class LocalRepository implements ILocalRepository {
     private readonly localRepository: Repository<LocalsEntity>,
   ) {}
 
-  create(data: LocalsEntity): Promise<LocalsEntity> {
+  create(data: CreateLocalDto): Promise<LocalsEntity> {
     return this.localRepository.save(this.localRepository.create(data));
   }
 

@@ -6,14 +6,12 @@ export class CreateLocalUseCase {
   constructor(private readonly repo: LocalRepository) {}
 
   async execute(dto: CreateLocalDto): Promise<LocalsEntity> {
-    const local = new LocalsEntity({
+    return this.repo.create({
       name: dto.name,
       description: dto.description,
       latitude: dto.latitude,
       longitude: dto.longitude,
       image: dto.image,
     });
-
-    return this.repo.create(local);
   }
 }
