@@ -1,18 +1,23 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { LocalsModule } from './modules/locals/locals.module';
+import { LocalsEntity } from './modules/locals/domain/entities/locals.entity';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ envFilePath: './.env', isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'test',
-      entities: [],
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT),
+      username: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      database: process.env.DB_DATABASE,
+      entities: [LocalsEntity],
       synchronize: true,
     }),
+    LocalsModule,
   ],
   controllers: [],
   providers: [],
