@@ -1,9 +1,9 @@
 import { UpdateResult } from 'typeorm';
 import { UpdateLocalDto } from '../dtos/update-local.dto';
-import { LocalRepository } from '../../infrastructure/repositories/local.repository';
+import { ILocalRepository } from '../../domain/interfaces/locals.repository.interface';
 
 export class UpdateLocalUseCase {
-  constructor(private readonly repo: LocalRepository) {}
+  constructor(private readonly repo: ILocalRepository) {}
 
   async execute(id: number, dto: UpdateLocalDto): Promise<UpdateResult> {
     return this.repo.update(id, dto);
