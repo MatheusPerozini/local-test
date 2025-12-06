@@ -1,13 +1,13 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { LocalsEntity } from '../../domain/entities/locals.entity';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
-import { ILocalRepository } from '../../domain/abstract/locals.repository.abstract';
+import { LocalRepositoryBase } from '../../domain/abstract/locals.repository.abstract';
 import { UpdateLocalDto } from '../../application/dtos/update-local.dto';
 import { CreateLocalDto } from '../../application/dtos/create-local-dto';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class LocalRepository implements ILocalRepository {
+export class LocalRepository implements LocalRepositoryBase {
   constructor(
     @InjectRepository(LocalsEntity)
     private readonly localRepository: Repository<LocalsEntity>,
